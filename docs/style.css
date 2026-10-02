@@ -14,12 +14,14 @@ body {
   box-sizing: border-box;
   padding: max(24px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
   display: grid;
-  place-items: center;
+  grid-template-columns: minmax(0, 360px);
+  justify-content: center;
+  align-content: center;
   background: var(--ground);
   color: var(--ink);
   font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-main { width: 100%; max-width: 360px; text-align: center; }
+main { min-width: 0; text-align: center; }
 h1 { font-size: 1.6rem; line-height: 1.2; margin: 16px 0 6px; }
 p { color: var(--soft); margin: 0 0 16px; }
 #icon { width: 112px; height: 112px; border-radius: 26px; }

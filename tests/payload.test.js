@@ -102,6 +102,13 @@ test("checkIconSvg allows gradients and groups", () => {
   assert.match(checkIconSvg(gradient), /<linearGradient id="g">/);
 });
 
+test("checkIconSvg allows comments and removes them", () => {
+  const commented = ICON.replace("<rect", "<!-- five goals, <text> not used --><rect");
+  const checked = checkIconSvg(commented);
+  assert.ok(!checked.includes("<!--"), checked);
+  assert.match(checked, /<rect width="512"/);
+});
+
 test("decodePayload rejects hidden and direction-changing characters in names", () => {
   assert.throws(() => decodePayload(encodePayload({ ...APP, name: "Tracker‮gnp" })), /name/);
   assert.throws(() => decodePayload(encodePayload({ ...APP, name: "Track\u0000er" })), /name/);

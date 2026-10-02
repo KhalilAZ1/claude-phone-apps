@@ -96,8 +96,9 @@ function checkIconElements(svg) {
 }
 
 // Returns the SVG with its root fixed at 512 x 512, so its drawing size is always known.
-export function checkIconSvg(svg) {
-  if (typeof svg !== "string") throw new PayloadError("The icon must be an SVG");
+export function checkIconSvg(rawSvg) {
+  if (typeof rawSvg !== "string") throw new PayloadError("The icon must be an SVG");
+  const svg = rawSvg.replace(/<!--[\s\S]*?-->/g, "");
   if (/<[!?]/.test(svg)) throw new PayloadError("The icon may not contain declarations");
   const viewBox = svg.match(SQUARE_VIEWBOX);
   if (!viewBox || viewBox[1] !== viewBox[2]) throw new PayloadError("The icon needs a square viewBox");
