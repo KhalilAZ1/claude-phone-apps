@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; manifest-src data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Phone apps from Claude</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<main>
+  <section id="home">
+    <h1>Phone apps from Claude</h1>
+    <p>This page installs a Claude artifact as an app on your home screen, with its own name and icon.</p>
+    <p>Ask Claude, with the <strong>phone-app</strong> skill, to build you an app. It replies with a link to this page.</p>
+  </section>
+
+  <section id="install" hidden>
+    <img id="icon" alt="" width="112" height="112">
+    <h1 id="name"></h1>
+    <p id="lead">Add this app to your home screen.</p>
+    <button id="install-button" type="button" hidden>Install</button>
+    <ol id="android-steps" hidden>
+      <li>Tap the <strong>⋮</strong> menu in Chrome.</li>
+      <li>Tap <strong>Add to home screen</strong>, then <strong>Install</strong> or <strong>Add</strong>.</li>
+    </ol>
+    <ol id="ios-steps" hidden>
+      <li>Tap <strong>Share</strong> in Safari.</li>
+      <li>Tap <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li>
+    </ol>
+    <a id="open" class="open">Open without installing</a>
+    <p class="source">Opens a Claude artifact: <span id="target"></span></p>
+  </section>
+
+  <section id="error" hidden>
+    <h1>This app link doesn't work</h1>
+    <p id="error-reason"></p>
+    <p>Ask Claude to make the link again.</p>
+  </section>
+</main>
+</body>
+</html>

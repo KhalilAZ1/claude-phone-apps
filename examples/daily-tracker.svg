@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#2747c7"/>
+  <!-- five goal segments; artwork stays inside the 80% maskable safe circle (radius 204) -->
+  <circle cx="256" cy="256" r="124" fill="none" stroke="#ffffff" stroke-width="36"
+    stroke-linecap="round" stroke-dasharray="99.8 56" stroke-dashoffset="-28"
+    transform="rotate(-90 256 256)"/>
+  <polyline points="204,260 240,296 310,222" fill="none" stroke="#ffffff" stroke-width="34"
+    stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

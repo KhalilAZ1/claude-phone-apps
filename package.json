@@ -1,0 +1,10 @@
+{
+  "name": "claude-phone-apps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Install any Claude artifact as a phone app with its own name and icon",
+  "scripts": {
+    "test": "node --test --experimental-test-coverage tests/*.test.js"
+  }
+}

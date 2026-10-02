@@ -1,0 +1,42 @@
+:root {
+  --theme: #2747c7;
+  --ground: #f4f6f8;
+  --ink: #18232e;
+  --soft: #5d6b78;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #e8edf2; --soft: #9aa8b5; --ground: #111820; color-scheme: dark; }
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: max(24px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+  display: grid;
+  place-items: center;
+  background: var(--ground);
+  color: var(--ink);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { width: 100%; max-width: 360px; text-align: center; }
+h1 { font-size: 1.6rem; line-height: 1.2; margin: 16px 0 6px; }
+p { color: var(--soft); margin: 0 0 16px; }
+#icon { width: 112px; height: 112px; border-radius: 26px; }
+#install-button, .open {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 12px;
+  padding: 14px;
+  min-height: 48px;
+  font: 600 1rem system-ui, -apple-system, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+#install-button { background: var(--theme); color: #fff; }
+.open { color: var(--theme); margin-top: 8px; }
+ol { text-align: left; color: var(--soft); padding-left: 1.2em; margin: 0 0 12px; }
+.source { font-size: 0.8rem; margin-top: 20px; word-break: break-all; }
+[hidden] { display: none !important; }
