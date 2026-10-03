@@ -26,18 +26,29 @@ You:    open the link on your phone → Install
   it doesn't run on a phone. This skill brings the last step, "put it on my home screen", into a
   normal chat in the Claude app.
 
-## Set it up (once)
+## Set it up (once, about 3 minutes)
 
-**Claude app or claude.ai**
+You need a free GitHub account. Your apps' install page runs on your own GitHub Pages, so your
+apps never depend on anyone else.
 
-1. Download [`phone-app.zip`](dist/phone-app.zip).
-2. In Claude, open **Settings → Capabilities**, turn on **Code execution**, and upload the zip
-   under **Skills**.
-3. In any chat: *"Build me a … for my phone."*
+**1. Connect your GitHub**
 
-**Claude Code**
+1. [Fork this repo](https://github.com/KhalilAZ1/claude-phone-apps/fork): tap **Create fork** and
+   keep the name `claude-phone-apps`.
+2. In your fork: **Settings → Pages → Branch: `main`, folder: `/docs` → Save**.
+3. A minute later, `https://<your-username>.github.io/claude-phone-apps/` shows
+   "Phone apps from Claude". That's your install page.
 
-Copy [`skill/phone-app`](skill/phone-app) to `~/.claude/skills/phone-app`.
+**2. Add the skill to Claude**
+
+- **Claude app or claude.ai:** download [`phone-app.zip`](dist/phone-app.zip). In Claude, open
+  **Settings → Capabilities**, turn on **Code execution**, and upload the zip under **Skills**.
+- **Claude Code:** copy [`skill/phone-app`](skill/phone-app) to `~/.claude/skills/phone-app`.
+  With the GitHub CLI (`gh`) signed in, Claude can do step 1 for you.
+
+**3. Ask for an app**
+
+*"Build me a … for my phone."* The first time, Claude asks for your GitHub username.
 
 ## What happens
 
@@ -55,8 +66,8 @@ https://claude.ai/artifact/…"*
 ## How the install link works
 
 Chrome and Safari take a home-screen icon and name from the page you install, and a claude.ai
-link always carries Claude's own. So the link points to one static install page in this repo
-([`docs/`](docs/), served by GitHub Pages) instead. The whole app (name, colors, icon drawing
+link always carries Claude's own. So the link points to the static install page in your fork
+([`docs/`](docs/), served by your GitHub Pages) instead. The whole app (name, colors, icon drawing
 and artifact link) is packed into the link itself. Your phone's browser turns it into the page's
 name, manifest and PNG icons. Opening the installed icon goes straight to your artifact on
 claude.ai.
@@ -72,15 +83,13 @@ artifacts still need you to be logged in to claude.ai in that browser.
 - iPhone has no one-tap install; Safari's Share menu is the only way.
 - If Claude can't see the artifact's link, you copy it once from the Share menu.
 
-## Host your own install page
+- Keep your fork and its name: installed apps open through your install page, so deleting or
+  renaming the fork (or turning Pages off) stops them from opening.
 
-The skill works as-is with the install page of this repo. To run your own copy:
+## Updating your fork
 
-1. Fork this repo.
-2. In your fork: **Settings → Pages → Deploy from a branch → `main` / `docs`**.
-3. Set `INSTALL_PAGE_URL` in [`skill/phone-app/scripts/make_link.py`](skill/phone-app/scripts/make_link.py)
-   to `https://<your-username>.github.io/claude-phone-apps/`.
-4. Rebuild the zip: `python scripts/build_zip.py`.
+When this repo gets fixes, open your fork on GitHub and tap **Sync fork → Update branch**.
+Your installed apps keep working; nothing needs reinstalling.
 
 ## Development
 
